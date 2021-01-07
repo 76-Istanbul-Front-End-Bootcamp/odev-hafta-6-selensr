@@ -89,4 +89,3 @@ fetch(`${window.mockApiUrl}`).then((response) => response.json()).then((pets) =>
 });
 
 
-export { addPet };
