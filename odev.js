@@ -1,7 +1,14 @@
-window.mockApiUrl = "https://5ff193d0db1158001748b15e.mockapi.io/pets/";
+import { addPet } from "./petappmodule";
+
 
 window.removePet = (id) => {
-    console.log(id) // remove the pet with given id
+      fetch(`${window.mockApiUrl}${id}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 window.openPetDetail = (id) => {
