@@ -1,3 +1,4 @@
+window.mockApiUrl = "https://5ff5725d941eaf0017f36cc2.mockapi.io/pets/";
 window.isEditing = false;
 window.editPet = (id) => {
     const $cardEl = document.querySelector(`#pet${id}`);
@@ -23,8 +24,8 @@ const addPet = (pet) => {
 
 document.querySelector("#petForm").addEventListener("submit", (e) => {
     e.preventDefault();
-    const name        = document.querySelector("#petName").value;
-    const image       = document.querySelector("#petImage").value;
+    const name = document.querySelector("#petName").value;
+    const image = document.querySelector("#petImage").value;
     const description = document.querySelector("#petDesc").value;
     const data = JSON.stringify({name, image, description});
     document.querySelector("#petSubmitButton").textContent = "Ekleniyor";
@@ -47,7 +48,6 @@ document.querySelector("#petForm").addEventListener("submit", (e) => {
             $cardEl.querySelector("h5").textContent = name;
             $cardEl.querySelector("img").src = image;
             window.isEditing = false;
-
             //addPet(pet);
         }).catch((err) => {
             document.querySelector("#petSubmitButton").textContent = "Submit";
@@ -87,3 +87,5 @@ fetch(`${window.mockApiUrl}`).then((response) => response.json()).then((pets) =>
         addPet(pet)
     })
 });
+
+
